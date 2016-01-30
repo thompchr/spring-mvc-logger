@@ -51,7 +51,7 @@ public class LoggingFilter extends OncePerRequestFilter {
 //            response.flushBuffer();
         }
         finally {
-            if(logger.isDebugEnabled()){
+            if(logger.isDebugEnabled() && !request.getRequestURI().contains("ping")){
                 logRequest(request);
                 logResponse((ResponseWrapper)response);
             }
